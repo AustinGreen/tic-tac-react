@@ -123,7 +123,7 @@ class App extends Component {
 
   endGame() {
     const { mostRecentSquare } = this.state;
-    console.log(mostRecentSquare.row, mostRecentSquare.col);
+    console.log('row', mostRecentSquare.row, mostRecentSquare.col);
   }
 
   render() {
