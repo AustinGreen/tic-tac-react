@@ -104,6 +104,7 @@ class App extends Component {
         row: null,
         col: null,
       },
+      turnNumber: 0,
     };
 
     // Bind class methods to object instances
@@ -113,14 +114,20 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    const { game, mostRecentSquare } = this.state;
-    if (true) this.endGame();
+    const { game, mostRecentSquare, turnNumber } = this.state;
+    if (turnNumber < 3) return;
+    if (mostRecentSquare.row === 0 && mostRecentSquare.col === 0) {
+      if (game[0][1] === game[0][2] || game[1][0] === game[2][0] || game[1][1] === game[2][2]) {
+        this.endGame();
+      }
+    }
   }
 
   updateBoard(row, col) {
-    const { game, currentTurn } = this.state;
+    const { game, currentTurn, turnNumber } = this.state;
     if (game[row][col].length) return;
     game[row][col] = currentTurn;
+    let nextTurn = turnNumber + 1;
     this.setState({
       game,
       currentTurn: currentTurn === 'X' ? 'O' : 'X',
@@ -128,6 +135,7 @@ class App extends Component {
         row,
         col,
       },
+      turnNumber: nextTurn,
     });
   }
 
@@ -138,8 +146,7 @@ class App extends Component {
   }
 
   endGame() {
-    const { mostRecentSquare } = this.state;
-    console.log('row', mostRecentSquare.row, mostRecentSquare.col);
+    console.log('Game over!');
   }
 
   render() {
