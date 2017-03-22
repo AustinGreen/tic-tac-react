@@ -13,21 +13,27 @@ const Board = ({ onClick, gameState, currentTurn }) => (
         style={{ borderWidth: '0 1px 1px 0' }}
         onClick={() => onClick(0, 0)}
       >
-        <p className="title has-text-centered">{gameState[0][0] ? gameState[0][0] : '\u00A0'}</p>
+        <p className="title is-1 has-text-centered">
+          {gameState[0][0] ? gameState[0][0] : '\u00A0'}
+        </p>
       </div>
       <div
         className="column is-4 Board__square"
         style={{ borderWidth: '0 1px 1px 0' }}
         onClick={() => onClick(0, 1)}
       >
-        <p className="title has-text-centered">{gameState[0][1] ? gameState[0][1] : '\u00A0'}</p>
+        <p className="title is-1 has-text-centered">
+          {gameState[0][1] ? gameState[0][1] : '\u00A0'}
+        </p>
       </div>
       <div
         className="column is-4 Board__square"
         style={{ borderWidth: '0 0 1px 0' }}
         onClick={() => onClick(0, 2)}
       >
-        <p className="title has-text-centered">{gameState[0][2] ? gameState[0][2] : '\u00A0'}</p>
+        <p className="title is-1 has-text-centered">
+          {gameState[0][2] ? gameState[0][2] : '\u00A0'}
+        </p>
       </div>
     </div>
     <div className="columns is-mobile">
@@ -36,7 +42,7 @@ const Board = ({ onClick, gameState, currentTurn }) => (
         style={{ borderWidth: '0 1px 1px 0' }}
         onClick={() => onClick(1, 0)}
       >
-        <p className="title has-text-centered">
+        <p className="title is-1 has-text-centered">
           {gameState[1][0] ? gameState[1][0] : '\u00A0'}
         </p>
       </div>
@@ -45,14 +51,18 @@ const Board = ({ onClick, gameState, currentTurn }) => (
         style={{ borderWidth: '0 1px 1px 0' }}
         onClick={() => onClick(1, 1)}
       >
-        <p className="title has-text-centered">{gameState[1][1] ? gameState[1][1] : '\u00A0'}</p>
+        <p className="title is-1 has-text-centered">
+          {gameState[1][1] ? gameState[1][1] : '\u00A0'}
+        </p>
       </div>
       <div
         className="column is-4 Board__square"
         style={{ borderWidth: '0 0 1px 0' }}
         onClick={() => onClick(1, 2)}
       >
-        <p className="title has-text-centered">{gameState[1][2] ? gameState[1][2] : '\u00A0'}</p>
+        <p className="title is-1 has-text-centered">
+          {gameState[1][2] ? gameState[1][2] : '\u00A0'}
+        </p>
       </div>
     </div>
     <div className="columns is-mobile">
@@ -61,17 +71,23 @@ const Board = ({ onClick, gameState, currentTurn }) => (
         style={{ borderWidth: '0 1px 0 0' }}
         onClick={() => onClick(2, 0)}
       >
-        <p className="title has-text-centered">{gameState[2][0] ? gameState[2][0] : '\u00A0'}</p>
+        <p className="title is-1 has-text-centered">
+          {gameState[2][0] ? gameState[2][0] : '\u00A0'}
+        </p>
       </div>
       <div
         className="column is-4 Board__square"
         style={{ borderWidth: '0 1px 0 0' }}
         onClick={() => onClick(2, 1)}
       >
-        <p className="title has-text-centered">{gameState[2][1] ? gameState[2][1] : '\u00A0'}</p>
+        <p className="title is-1 has-text-centered">
+          {gameState[2][1] ? gameState[2][1] : '\u00A0'}
+        </p>
       </div>
       <div className="column is-4 Board__square" onClick={() => onClick(2, 2)}>
-        <p className="title has-text-centered">{gameState[2][2] ? gameState[2][2] : '\u00A0'}</p>
+        <p className="title is-1 has-text-centered">
+          {gameState[2][2] ? gameState[2][2] : '\u00A0'}
+        </p>
       </div>
     </div>
   </div>
@@ -134,7 +150,9 @@ class App extends Component {
     } = this.state;
     return (
       <div>
-        <div className="section column is-half is-offset-one-quarter has-text-centered">
+        <div
+          className="section column is-12-mobile is-half-desktop is-offset-one-quarter-desktop has-text-centered"
+        >
           {hasGameBegun
             ? <Board
               currentTurn={currentTurn}
