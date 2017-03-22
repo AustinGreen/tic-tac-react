@@ -1,97 +1,105 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 
-const Board = ({ onClick, gameState, currentTurn }) => (
-  <div>
-    <div className="section">
-      <div className="notification">
-        <strong>Player {currentTurn}.</strong> It is your turn.
+const Board = ({ onClick, gameState, hasGameEnded, currentTurn }) => {
+  let winner = currentTurn === 'X' ? 'O' : 'X';
+  return (
+    <div>
+      <div className="section">
+        {hasGameEnded
+          ? <div className="notification">
+              Congratulations <strong>Player {winner}</strong> You won.
+            </div>
+          : <div className="notification">
+              <strong>Player {currentTurn}.</strong> It is your turn.
+            </div>}
+      </div>
+      <div className="columns is-mobile">
+        <div
+          className="column is-4 Board__square"
+          style={{ borderWidth: '0 1px 1px 0' }}
+          onClick={() => onClick(0, 0)}
+        >
+          <p className="title is-1 has-text-centered">
+            {gameState[0][0] ? gameState[0][0] : '\u00A0'}
+          </p>
+        </div>
+        <div
+          className="column is-4 Board__square"
+          style={{ borderWidth: '0 1px 1px 0' }}
+          onClick={() => onClick(0, 1)}
+        >
+          <p className="title is-1 has-text-centered">
+            {gameState[0][1] ? gameState[0][1] : '\u00A0'}
+          </p>
+        </div>
+        <div
+          className="column is-4 Board__square"
+          style={{ borderWidth: '0 0 1px 0' }}
+          onClick={() => onClick(0, 2)}
+        >
+          <p className="title is-1 has-text-centered">
+            {gameState[0][2] ? gameState[0][2] : '\u00A0'}
+          </p>
+        </div>
+      </div>
+      <div className="columns is-mobile">
+        <div
+          className="column is-4 Board__square"
+          style={{ borderWidth: '0 1px 1px 0' }}
+          onClick={() => onClick(1, 0)}
+        >
+          <p className="title is-1 has-text-centered">
+            {gameState[1][0] ? gameState[1][0] : '\u00A0'}
+          </p>
+        </div>
+        <div
+          className="column is-4 Board__square"
+          style={{ borderWidth: '0 1px 1px 0' }}
+          onClick={() => onClick(1, 1)}
+        >
+          <p className="title is-1 has-text-centered">
+            {gameState[1][1] ? gameState[1][1] : '\u00A0'}
+          </p>
+        </div>
+        <div
+          className="column is-4 Board__square"
+          style={{ borderWidth: '0 0 1px 0' }}
+          onClick={() => onClick(1, 2)}
+        >
+          <p className="title is-1 has-text-centered">
+            {gameState[1][2] ? gameState[1][2] : '\u00A0'}
+          </p>
+        </div>
+      </div>
+      <div className="columns is-mobile">
+        <div
+          className="column is-4 Board__square"
+          style={{ borderWidth: '0 1px 0 0' }}
+          onClick={() => onClick(2, 0)}
+        >
+          <p className="title is-1 has-text-centered">
+            {gameState[2][0] ? gameState[2][0] : '\u00A0'}
+          </p>
+        </div>
+        <div
+          className="column is-4 Board__square"
+          style={{ borderWidth: '0 1px 0 0' }}
+          onClick={() => onClick(2, 1)}
+        >
+          <p className="title is-1 has-text-centered">
+            {gameState[2][1] ? gameState[2][1] : '\u00A0'}
+          </p>
+        </div>
+        <div className="column is-4 Board__square" onClick={() => onClick(2, 2)}>
+          <p className="title is-1 has-text-centered">
+            {gameState[2][2] ? gameState[2][2] : '\u00A0'}
+          </p>
+        </div>
       </div>
     </div>
-    <div className="columns is-mobile">
-      <div
-        className="column is-4 Board__square"
-        style={{ borderWidth: '0 1px 1px 0' }}
-        onClick={() => onClick(0, 0)}
-      >
-        <p className="title is-1 has-text-centered">
-          {gameState[0][0] ? gameState[0][0] : '\u00A0'}
-        </p>
-      </div>
-      <div
-        className="column is-4 Board__square"
-        style={{ borderWidth: '0 1px 1px 0' }}
-        onClick={() => onClick(0, 1)}
-      >
-        <p className="title is-1 has-text-centered">
-          {gameState[0][1] ? gameState[0][1] : '\u00A0'}
-        </p>
-      </div>
-      <div
-        className="column is-4 Board__square"
-        style={{ borderWidth: '0 0 1px 0' }}
-        onClick={() => onClick(0, 2)}
-      >
-        <p className="title is-1 has-text-centered">
-          {gameState[0][2] ? gameState[0][2] : '\u00A0'}
-        </p>
-      </div>
-    </div>
-    <div className="columns is-mobile">
-      <div
-        className="column is-4 Board__square"
-        style={{ borderWidth: '0 1px 1px 0' }}
-        onClick={() => onClick(1, 0)}
-      >
-        <p className="title is-1 has-text-centered">
-          {gameState[1][0] ? gameState[1][0] : '\u00A0'}
-        </p>
-      </div>
-      <div
-        className="column is-4 Board__square"
-        style={{ borderWidth: '0 1px 1px 0' }}
-        onClick={() => onClick(1, 1)}
-      >
-        <p className="title is-1 has-text-centered">
-          {gameState[1][1] ? gameState[1][1] : '\u00A0'}
-        </p>
-      </div>
-      <div
-        className="column is-4 Board__square"
-        style={{ borderWidth: '0 0 1px 0' }}
-        onClick={() => onClick(1, 2)}
-      >
-        <p className="title is-1 has-text-centered">
-          {gameState[1][2] ? gameState[1][2] : '\u00A0'}
-        </p>
-      </div>
-    </div>
-    <div className="columns is-mobile">
-      <div
-        className="column is-4 Board__square"
-        style={{ borderWidth: '0 1px 0 0' }}
-        onClick={() => onClick(2, 0)}
-      >
-        <p className="title is-1 has-text-centered">
-          {gameState[2][0] ? gameState[2][0] : '\u00A0'}
-        </p>
-      </div>
-      <div
-        className="column is-4 Board__square"
-        style={{ borderWidth: '0 1px 0 0' }}
-        onClick={() => onClick(2, 1)}
-      >
-        <p className="title is-1 has-text-centered">
-          {gameState[2][1] ? gameState[2][1] : '\u00A0'}
-        </p>
-      </div>
-      <div className="column is-4 Board__square" onClick={() => onClick(2, 2)}>
-        <p className="title is-1 has-text-centered">
-          {gameState[2][2] ? gameState[2][2] : '\u00A0'}
-        </p>
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 class App extends Component {
   constructor(props) {
@@ -100,6 +108,7 @@ class App extends Component {
       game: [['', '', ''], ['', '', ''], ['', '', '']],
       currentTurn: 'X',
       hasGameBegun: false,
+      hasGameEnded: false,
       mostRecentSquare: {
         row: null,
         col: null,
@@ -114,8 +123,8 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    const { game, mostRecentSquare, turnNumber, currentTurn } = this.state;
-    if (turnNumber < 3) return;
+    const { game, mostRecentSquare, hasGameEnded, turnNumber, currentTurn } = this.state;
+    if (turnNumber < 3 || hasGameEnded) return;
 
     if (mostRecentSquare.row === 0 && mostRecentSquare.col === 0) {
       if (game[0][1] === game[0][2]) {
@@ -287,8 +296,8 @@ class App extends Component {
   }
 
   updateBoard(row, col) {
-    const { game, currentTurn, turnNumber } = this.state;
-    if (game[row][col].length) return;
+    const { game, currentTurn, turnNumber, hasGameEnded } = this.state;
+    if (game[row][col].length || hasGameEnded) return;
     game[row][col] = currentTurn;
     let nextTurn = turnNumber + 1;
     this.setState({
@@ -309,7 +318,9 @@ class App extends Component {
   }
 
   endGame(winner) {
-    console.log(`Congratulations Player ${winner}! You won.`);
+    this.setState({
+      hasGameEnded: true,
+    });
   }
 
   render() {
@@ -317,6 +328,7 @@ class App extends Component {
       game,
       hasGameBegun,
       currentTurn,
+      hasGameEnded,
     } = this.state;
     return (
       <div>
@@ -325,10 +337,11 @@ class App extends Component {
         >
           {hasGameBegun
             ? <Board
-              currentTurn={currentTurn}
-              gameState={game}
-              onClick={(row, col) => this.updateBoard(row, col)}
-            />
+                currentTurn={currentTurn}
+                hasGameEnded={hasGameEnded}
+                gameState={game}
+                onClick={(row, col) => this.updateBoard(row, col)}
+              />
             : <a className="button is-success" onClick={() => this.beginGame()}>New Game</a>}
         </div>
       </div>
