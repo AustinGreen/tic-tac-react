@@ -114,11 +114,150 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    const { game, mostRecentSquare, turnNumber } = this.state;
+    const { game, mostRecentSquare, turnNumber, currentTurn } = this.state;
     if (turnNumber < 3) return;
+
     if (mostRecentSquare.row === 0 && mostRecentSquare.col === 0) {
-      if (game[0][1] === game[0][2] || game[1][0] === game[2][0] || game[1][1] === game[2][2]) {
-        this.endGame();
+      if (game[0][1] === game[0][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][1]) {
+          this.endGame();
+        }
+      }
+      if (game[1][0] === game[2][0]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[1][0]) {
+          this.endGame();
+        }
+      }
+      if (game[1][1] === game[2][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[1][1]) {
+          this.endGame();
+        }
+      }
+    }
+
+    if (mostRecentSquare.row === 0 && mostRecentSquare.col === 1) {
+      if (game[0][0] === game[0][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][0]) {
+          this.endGame();
+        }
+      }
+      if (game[1][1] === game[2][1]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[1][1]) {
+          this.endGame();
+        }
+      }
+    }
+
+    if (mostRecentSquare.row === 0 && mostRecentSquare.col === 2) {
+      if (game[0][0] === game[0][1]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][0]) {
+          this.endGame();
+        }
+      }
+      if (game[1][2] === game[2][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[1][2]) {
+          this.endGame();
+        }
+      }
+      if (game[1][1] === game[2][0]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[1][1]) {
+          this.endGame();
+        }
+      }
+    }
+
+    if (mostRecentSquare.row === 1 && mostRecentSquare.col === 0) {
+      if (game[1][1] === game[1][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[1][1]) {
+          this.endGame();
+        }
+      }
+      if (game[0][0] === game[2][0]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][0]) {
+          this.endGame();
+        }
+      }
+    }
+
+    if (mostRecentSquare.row === 1 && mostRecentSquare.col === 1) {
+      if (game[1][0] === game[1][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[1][0]) {
+          this.endGame();
+        }
+      }
+      if (game[0][1] === game[2][1]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][1]) {
+          this.endGame();
+        }
+      }
+      if (game[0][0] === game[2][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][0]) {
+          this.endGame();
+        }
+      }
+      if (game[0][2] === game[2][0]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][2]) {
+          this.endGame();
+        }
+      }
+    }
+
+    if (mostRecentSquare.row === 1 && mostRecentSquare.col === 2) {
+      if (game[1][0] === game[1][1]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[1][0]) {
+          this.endGame();
+        }
+      }
+      if (game[0][2] === game[2][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][2]) {
+          this.endGame();
+        }
+      }
+    }
+    if (mostRecentSquare.row === 2 && mostRecentSquare.col === 0) {
+      if (game[2][1] === game[2][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[2][1]) {
+          this.endGame();
+        }
+      }
+      if (game[0][0] === game[1][0]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][0]) {
+          this.endGame();
+        }
+      }
+      if (game[0][2] === game[1][1]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][2]) {
+          this.endGame();
+        }
+      }
+    }
+    if (mostRecentSquare.row === 2 && mostRecentSquare.col === 1) {
+      if (game[2][0] === game[2][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[2][0]) {
+          this.endGame();
+        }
+      }
+      if (game[0][1] === game[1][1]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][1]) {
+          this.endGame();
+        }
+      }
+    }
+    if (mostRecentSquare.row === 2 && mostRecentSquare.col === 2) {
+      if (game[2][0] === game[2][1]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[2][0]) {
+          this.endGame();
+        }
+      }
+      if (game[0][2] === game[1][2]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][2]) {
+          this.endGame();
+        }
+      }
+      if (game[0][0] === game[1][1]) {
+        if (game[mostRecentSquare.row][mostRecentSquare.col] === game[0][0]) {
+          this.endGame();
+        }
       }
     }
   }
