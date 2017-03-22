@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
-const Board = () => (
+const Board = ({ onClick }) => (
   <div>
     <div className="columns is-mobile">
       <div
-        className="column is-4 Board__square has-text-centered"
+        className="column is-4 Board__square"
         style={{ borderWidth: '0 1px 1px 0' }}
+        onClick={onClick}
       >
-        <a className="title" onClick={() => console.log('X')}>O</a>
+        <p className="title has-text-centered">{display}</p>
       </div>
       <div
         className="column is-4 Board__square has-text-centered"
@@ -63,11 +64,23 @@ const Board = () => (
 );
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      game: [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']],
+    };
+
+    // Bind class methods to object instances
+    // this.updateBoard = this.updateBoard.bind(this);
+  }
+
+  updateBoard() {}
+
   render() {
     return (
       <div>
         <div className="section column is-half is-offset-one-quarter">
-          <Board />
+          <Board onClick={() => this.updateBoard()} />
         </div>
       </div>
     );
