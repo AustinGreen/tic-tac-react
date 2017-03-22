@@ -89,6 +89,25 @@ class App extends Component {
     // Bind class methods to object instances
     this.updateBoard = this.updateBoard.bind(this);
     this.beginGame = this.beginGame.bind(this);
+    this.endGame = this.endGame.bind(this);
+  }
+
+  componentDidUpdate() {
+    const { game } = this.state;
+    if (
+      (game[0][0] && game[0][1] && game[0][2] === 'X') ||
+      (game[1][0] && game[1][1] && game[1][2] === 'X') ||
+      (game[2][0] && game[2][1] && game[2][2] === 'X') ||
+      (game[0][0] && game[1][0] && game[2][0] === 'X') ||
+      (game[0][1] && game[1][1] && game[2][1] === 'X') ||
+      (game[0][2] && game[1][2] && game[2][2] === 'X') ||
+      (game[0][0] && game[1][1] && game[2][2] === 'X') ||
+      (game[0][2] && game[1][1] && game[2][0] === 'X')
+    ) {
+      this.endGame();
+    }
+    // this.setState({ searchKey: searchTerm });
+    // commented this out in favor of defaulting searchKey to DEFAULT_QUERY
   }
 
   updateBoard(row, col) {
@@ -105,6 +124,10 @@ class App extends Component {
     this.setState({
       hasGameBegun: true,
     });
+  }
+
+  endGame() {
+    console.log('game over, x won!');
   }
 
   render() {
