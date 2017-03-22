@@ -1,14 +1,17 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 
-const Board = ({ onClick, gameState, hasGameEnded, currentTurn }) => {
+const Board = ({ onClick, gameState, hasGameEnded, currentTurn, newGame }) => {
   let winner = currentTurn === 'X' ? 'O' : 'X';
   return (
     <div>
       <div className="section">
         {hasGameEnded
           ? <div className="notification">
-              Congratulations <strong>Player {winner}</strong> You won.
+              Congratulations <strong>Player {winner}</strong> You won. 🎉🎉🎉<br />
+              <a className="button is-success is-outlined margin-top-20" onClick={newGame}>
+                Play again?
+              </a>
             </div>
           : <div className="notification">
               <strong>Player {currentTurn}.</strong> It is your turn.
@@ -313,7 +316,15 @@ class App extends Component {
 
   beginGame() {
     this.setState({
+      game: [['', '', ''], ['', '', ''], ['', '', '']],
+      currentTurn: 'X',
       hasGameBegun: true,
+      hasGameEnded: false,
+      mostRecentSquare: {
+        row: null,
+        col: null,
+      },
+      turnNumber: 0,
     });
   }
 
@@ -340,6 +351,7 @@ class App extends Component {
                 currentTurn={currentTurn}
                 hasGameEnded={hasGameEnded}
                 gameState={game}
+                newGame={(row, col) => this.beginGame()}
                 onClick={(row, col) => this.updateBoard(row, col)}
               />
             : <a className="button is-success" onClick={() => this.beginGame()}>New Game</a>}
