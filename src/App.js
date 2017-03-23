@@ -1,22 +1,34 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 
-const Board = ({ onClick, gameState, hasGameEnded, currentTurn, newGame }) => {
+const Board = ({ onClick, gameState, hasGameEnded, currentTurn, newGame, turnNumber }) => {
   let winner = currentTurn === 'X' ? 'O' : 'X';
+  const notificationDisplay = () => {
+    if (turnNumber === 9) {
+      return (
+        <div className="notification">
+          The game ended in a draw!<br />
+          <a className="button is-success is-outlined margin-top-20" onClick={newGame}>
+            Play again?
+          </a>
+        </div>
+      );
+    }
+    return hasGameEnded
+      ? <div className="notification">
+          Congratulations <strong>Player {winner}</strong> You won. 🎉🎉🎉<br />
+          <a className="button is-success is-outlined margin-top-20" onClick={newGame}>
+            Play again?
+          </a>
+        </div>
+      : <div className="notification">
+          <strong>Player {currentTurn}.</strong> It is your turn.
+        </div>;
+  };
+
   return (
     <div>
-      <div className="section">
-        {hasGameEnded
-          ? <div className="notification">
-              Congratulations <strong>Player {winner}</strong> You won. 🎉🎉🎉<br />
-              <a className="button is-success is-outlined margin-top-20" onClick={newGame}>
-                Play again?
-              </a>
-            </div>
-          : <div className="notification">
-              <strong>Player {currentTurn}.</strong> It is your turn.
-            </div>}
-      </div>
+      <div className="section">{notificationDisplay()}</div>
       <div className="columns is-mobile">
         <div
           className="column is-4 Board__square"
@@ -340,6 +352,7 @@ class App extends Component {
       hasGameBegun,
       currentTurn,
       hasGameEnded,
+      turnNumber,
     } = this.state;
     return (
       <div
@@ -350,6 +363,7 @@ class App extends Component {
               currentTurn={currentTurn}
               hasGameEnded={hasGameEnded}
               gameState={game}
+              turnNumber={turnNumber}
               newGame={(row, col) => this.beginGame()}
               onClick={(row, col) => this.updateBoard(row, col)}
             />
