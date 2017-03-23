@@ -1,8 +1,14 @@
 .Board__square {
-  padding: 50px;
+  padding: 20px;
   border-color: black;
   border-style: solid;
   border-width: 0;
+}
+
+@media (min-width: 768px) {
+  .Board__square {
+    padding: 50px;
+  }
 }
 
 .margin-top-20 {

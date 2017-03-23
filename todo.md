@@ -1,0 +1,5 @@
+- Add logic for draw (turnNumber)
+- responsive
+- break into more components
+- code cleanup and organization
+- add style for win

@@ -342,20 +342,18 @@ class App extends Component {
       hasGameEnded,
     } = this.state;
     return (
-      <div>
-        <div
-          className="section column is-12-mobile is-half-desktop is-offset-one-quarter-desktop has-text-centered"
-        >
-          {hasGameBegun
-            ? <Board
-                currentTurn={currentTurn}
-                hasGameEnded={hasGameEnded}
-                gameState={game}
-                newGame={(row, col) => this.beginGame()}
-                onClick={(row, col) => this.updateBoard(row, col)}
-              />
-            : <a className="button is-success" onClick={() => this.beginGame()}>New Game</a>}
-        </div>
+      <div
+        className="section column is-12-mobile is-half-desktop is-offset-one-quarter-desktop has-text-centered"
+      >
+        {hasGameBegun
+          ? <Board
+              currentTurn={currentTurn}
+              hasGameEnded={hasGameEnded}
+              gameState={game}
+              newGame={(row, col) => this.beginGame()}
+              onClick={(row, col) => this.updateBoard(row, col)}
+            />
+          : <a className="button is-success" onClick={() => this.beginGame()}>New Game</a>}
       </div>
     );
   }
