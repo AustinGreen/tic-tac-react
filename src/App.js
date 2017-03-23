@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 const Board = ({ onClick, gameState, hasGameEnded, currentTurn, newGame, turnNumber }) => {
   let winner = currentTurn === 'X' ? 'O' : 'X';
   const notificationDisplay = () => {
-    if (turnNumber === 9) {
+    if (!hasGameEnded && turnNumber === 9) {
       return (
         <div className="notification">
           The game ended in a draw!<br />
