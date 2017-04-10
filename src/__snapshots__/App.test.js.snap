@@ -1,0 +1,10 @@
+exports[`App snapshots 1`] = `
+<div
+  className="section column is-12-mobile is-half-desktop is-offset-one-quarter-desktop has-text-centered">
+  <a
+    className="button is-success"
+    onClick={[Function]}>
+    New Game
+  </a>
+</div>
+`;

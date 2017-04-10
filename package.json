@@ -12,15 +12,15 @@
     "styled-components": "^1.4.4"
   },
   "devDependencies": {
-    "enzyme": "^2.7.1",
+    "enzyme": "^2.8.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
-    "react-addons-test-utils": "^15.4.2",
+    "react-addons-test-utils": "^15.5.1",
     "react-scripts": "0.9.5",
-    "react-test-renderer": "^15.4.2"
+    "react-test-renderer": "^15.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
